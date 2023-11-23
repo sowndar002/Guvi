@@ -14,8 +14,18 @@ if (isset($_POST['login'])) {
     $Email = mysqli_real_escape_string($conn, $_POST['email']);
     $Password = mysqli_real_escape_string($conn, $_POST['password']);
 
-    $sql = "SELECT * FROM user WHERE Email = '$Email' AND Password = '$Password'";
-    $result = mysqli_query($conn, $sql);
+        $sql = "SELECT * FROM user WHERE Email = ? AND Password = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+
+        mysqli_stmt_bind_param($stmt, "ss", $Email, $Password);
+
+    
+    mysqli_stmt_execute($stmt);
+
+    
+    $result = mysqli_stmt_get_result($stmt);
+
+    
     $row = mysqli_fetch_assoc($result);
 
     if ($row) {
@@ -23,6 +33,9 @@ if (isset($_POST['login'])) {
     } else {
         echo json_encode(array("status" => 'error', "message" => 'Invalid Username or Password'));
     }
+
+
+    mysqli_stmt_close($stmt);
 } else {
     echo json_encode(array("status" => 'error', "message" => 'Invalid request'));
 }

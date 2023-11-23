@@ -20,15 +20,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cpassword = mysqli_real_escape_string($conn, $_POST['cpassword']);
     $gender = mysqli_real_escape_string($conn, $_POST['gender']);
 
+    
     $sql = "INSERT INTO user (`First Name`, `Last Name`, `Email`, `DOB`, `Phone_No`, `Password`, `Confirm Password`, `Gender`)
-            VALUES ('$firstName', '$lastName', '$email', '$DOB', '$phone_No', '$password', '$cpassword', '$gender')";
-    $connection = mysqli_query($conn, $sql);
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = mysqli_prepare($conn, $sql);
 
-    if ($connection) {
+    
+    mysqli_stmt_bind_param($stmt, "ssssssss", $firstName, $lastName, $email, $DOB, $phone_No, $password, $cpassword, $gender);
+
+    
+    $result = mysqli_stmt_execute($stmt);
+
+    if ($result) {
         echo json_encode(array("status" => 'success', "message" => 'Successfully registered'));
     } else {
         echo json_encode(array("status" => 'error', "message" => 'Error registering user: ' . mysqli_error($conn)));
     }
+
+    mysqli_stmt_close($stmt);
 } else {
     echo json_encode(array("status" => 'error', "message" => 'Invalid request method'));
 }
