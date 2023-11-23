@@ -5,6 +5,10 @@ const password = localStorage.getItem("password");
 document.getElementById("userName").value = userEmail;
 document.getElementById("phone_No").value = phone_No;
 
+function updateform(){
+  alert("Successfully updated")
+}
+
 $("#updateButton").click(function (ev) {
   ev.preventDefault();
   var form = $("formId");
