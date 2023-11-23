@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Registration Form</title>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            Registration 
+        </div>
+        <form id="formId" >
+            <div class="user-details">
+                <div class="input-box">
+                    <div class="label">First Name</div>
+                    <input type="text" placeholder="Enter Your First Name.." name="firstName" required>
+                </div>
+                <div class="input-box">
+                    <div class="label">Last Name</div>
+                    <input type="text" placeholder="Enter Your Last Name.." name="lastName" required>
+                </div>
+                <div class="input-box">
+                    <div class="label">Email</div>
+                    <input type="mail" placeholder="Enter Your Email.." name="email" required>
+                </div>
+                <div class="input-box">
+                    <div class="label">DOB</div>
+                    <input type="date" name="dob" required>
+                </div>
+                <div class="input-box">
+                    <div class="label">Phone Number</div>
+                    <input type="tel" placeholder="Enter Your Number" name="phone_No" required>
+                </div>
+                <div class="input-box">
+                    <div class="label">Password</div>
+                    <input type="pasword" placeholder="Enter Your Password.." name="password" required>
+                </div>
+                <div class="input-box">
+                    <div class="label">Confirm Password</div>
+                    <input type="password" placeholder="Confirm Your Password.." name="cpassword" required>
+                </div>
+            </div>
+            <div class="gender-details">
+                <div class="gender-title">Gender</div>
+                <div class="category">
+                    <label>
+                        <input type="radio" name="gender" value="Male">
+                        Male
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="Female">
+                        Female
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="Others">
+                        Prefer Not to say
+                    </label>
+                </div>
+            </div>
+            <div class="button">
+                <button type="submit" value="register" id="registerButton">Register</button>
+            </div>
+            <div>Already Sign Up? <a href="Login.html">Login</a></div>
+        </form>
+    </div>
+    <script src="./js/Register.js"></script>
+</body>
+</html>

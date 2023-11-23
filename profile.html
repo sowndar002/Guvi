@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/profile.css">
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Profile</title>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            My Profile
+        </div>
+        <form id="formId" >
+            <div class="user-details">
+                <div class="input-box">
+                    <div class="label">User Name</div>
+                    <input type="text" id="userName" placeholder="Enter Your UserName.." name="userName" required>
+                </div>
+                <div class="input-box">
+                    <div class="label">Contact Number</div>
+                    <input type="text" id="contactNumber" placeholder="Enter Your Contact Number.." name="contactNumber" required>
+                </div>                
+                <div class="input-box">
+                    <div class="label">College Name</div>
+                    <input type="text" placeholder="Enter Your Address" name="email" required>
+                </div>
+                <div class="input-box">
+                    <div class="label">Address</div>
+                    <input type="text" name="address" placeholder="Enter Your Address" required>
+                </div>
+            </div>
+            <div class="button">
+                <button type="submit" value="update" id="updateButton">Update</button>
+                <button type="submit" value="cancel" id="CancelButton">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <script src="./js/profile.js"></script>
+</body>
+</html>
